@@ -1,0 +1,43 @@
+#My First project
+#%RAML 0.8
+ 
+title: Get Meaning of Word
+baseUri: http://synonym.com/synonym
+
+/meaning:
+  post:
+    description: fins a synonym
+    body:
+      application/json:
+        example: |
+          {
+            "synonym": {
+              "word": "say",
+              "initialLetter": "s",
+              "noOfLetters": 3
+            }
+          }
+    responses:
+      200:
+        description: example response
+        body:
+          application/json:
+            example: |
+              {
+                  "word":"say",
+                  "synonym":"tell"
+              }
+      400 :
+        body:          
+          application/json:
+            example: |
+                 { 
+                  "message": "synonyms not avaliable"
+                  }  
+      500 :
+        body:
+          application/json:
+            example: |
+                { 
+                  "message": "Internal server issue"
+                }
